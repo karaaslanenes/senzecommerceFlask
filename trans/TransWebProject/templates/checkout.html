@@ -1,0 +1,21 @@
+ {% extends "base.html" %}
+{% block title %}{{ super() }} - Checkout Page{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+<div id="total">
+   <span id="subtotal">Proceed to pay $ {{totalPrice}} </span>
+</div>
+    <h5 id="total">you will be redirected to Paypal page.</h5>
+<body>
+    <div class="container my-3 bg-light">
+        <div class="col-md-12 text-center">
+             <a href="https://www.paypal.com/us/signin" class="btn btn-success">Proceed</a>
+             <a href="/cart" class="btn btn-danger">Go back</a>
+
+         </div>
+    </div>
+<br>
+    <br>
+ {% endblock %}

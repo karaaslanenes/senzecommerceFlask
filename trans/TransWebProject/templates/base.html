@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+
+{% block title %} <title>Tran Project {% endblock %}</title>
+
+
+     <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src={{ url_for('static', filename='js/changePassword.js') }}></script>
+
+<link rel="stylesheet" href={{url_for('static', filename='css/productDescription.css')}} />
+<link rel="stylesheet" href={{url_for('static', filename='css/cart.css')}} />
+ <link rel="stylesheet" href={{ url_for('static', filename='css/home.css') }} />
+<link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} />
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</head>
+
+
+<body>
+<br>
+<br>
+<br>
+<br>
+
+
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <a class="navbar-brand" href="/"><span style="color: crimson">SENZ</span> <span style="color: #3e72ee">ELECTRONICS</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+       <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact</a>
+      </li>
+     <li class="nav-item">
+        <a class="nav-link" href="/aboutUs">About us</a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Category
+
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <ul>
+			{% for row in categoryData %}
+			<li><a href="/displayCategory?categoryId={{row[0]}}">{{row[1]}}</a></li>
+			{% endfor %}
+		</ul>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/">Main Category</a>
+        </div>
+      </li>
+         <li class="nav-item">
+     <div >
+	{% if not loggedIn %}
+	<div id="">
+		<a class="nav-link" href="/loginForm">Sign In</a>
+	</div>
+	{% else %}
+	<div class="dropdown">
+		<button class="dropbtn">Hello, <br>{{firstName}}</button>
+		<div class="dropdown-content">
+			<a href="/account/orders">Your orders</a>
+			<a href="/account/profile">Your profile</a>
+			<hr>
+			<a href="/logout">Sign Out</a>
+		</div>
+	</div>
+	{% endif %}
+
+</div>
+      </li>
+
+    </ul>
+
+      <div id="kart">
+		<a class="link" href="/cart">
+			<img src={{url_for('static', filename='images/shoppingCart.png')}} id="cartIcon" />
+			 {{noOfItems}} Items in the Cart
+		</a>
+	</div>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+
+</nav>
+
+ <!--Footer-->
+<!-- Remove the container if you want to extend the Footer to full width. -->
+{% block content %}
+ {% endblock %}
+  <!-- Footer -->
+  <footer
+          class="text-center text-lg-start text-dark"
+          style="background-color: #ECEFF1"
+          >
+    <!-- Section: Social media -->
+    <section
+             class="d-flex justify-content-between p-4 text-white"
+             style="background-color: #21D192";
+
+             >
+      <!-- Left -->
+      <div class="me-5">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <!-- Left -->
+
+      <!-- Right -->
+      <div >
+        <a class="Gecler" href="" class="text-white me-4 ">
+          <i class="fab fa-facebook-f fa-lg"></i>
+        </a>
+        <a class="Gecler"  href="" class="text-white me-4">
+          <i class="fab fa-twitter fa-lg"></i>
+        </a>
+        <a class="Gecler" href="" class="text-white me-4">
+          <i class="fab fa-google fa-lg"></i>
+        </a>
+        <a class="Gecler" href="" class="text-white me-4 ">
+          <i class="fab fa-instagram fa-lg"></i>
+        </a>
+        <a class="Gecler" href="" class="text-white me-4">
+          <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a  class="Gecler" href="" class="text-white me-4">
+          <i class="fab fa-github fa-lg"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold">SENZ Electronics</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              The company name represents the first letters of this project's team members, Shayekh, Enes, Noah, Zahra.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Products</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <a href="displayCategory?categoryId=1" class="text-dark">Laptops</a>
+            </p>
+            <p>
+              <a href="displayCategory?categoryId=2" class="text-dark">Desktops</a>
+            </p>
+            <p>
+              <a href="displayCategory?categoryId=3" class="text-dark">Headphones</a>
+            </p>
+            <p>
+              <a href="displayCategory?categoryId=4" class="text-dark">Mobile phones</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Useful links</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <a href="/account/profile" class="text-dark">Your Account</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Become an Affiliate</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Shipping Rates</a>
+            </p>
+            <p>
+              <a href="#!" class="text-dark">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Contact</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p><i class="fas fa-home mr-3"></i> 821 Avenue Sainte-Croix</p>
+            <p><i class="fas fa-envelope mr-3"></i> Montreal, Quebec</p>
+            <p><i class="fas fa-phone mr-3"></i> H4L 3X9 Canada</p>
+            <p><i class="fas fa-print mr-3"></i> Phone: 514-744-7500</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2022 Copyright:
+      <a class="text-dark"
+         >SENZ Group</a
+        >
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+
+</body>
+</html>

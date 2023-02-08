@@ -1,0 +1,39 @@
+  {% extends "base.html" %}
+{% block title %}{{ super() }} - Cart Page{% endblock %}
+
+
+{% block content %}
+<br>
+    <br>
+
+<div id="cartItems" >
+	<h2>Shopping Cart</h2>
+	<div id="tableItems">
+		{% for row in products %}
+		<div>
+
+			<div id="itemImage">
+				<img alt ="product" src={{url_for('static', filename='uploads/'+row[3])}} id="image"/>
+			</div>
+            <hr >
+			<div id="itemName">
+				<span id="itemNameTag">{{row[1]}}</span><br>
+				In stock<br>
+				<a href="/removeFromCart?productId={{row[0]}}">Remove</a>
+			</div>
+			<div id="itemPrice">
+				$ {{row[2]}}
+			</div>
+		</div>
+		{% endfor %}
+		<hr >
+		<div id="total">
+			<span id="subtotal">Subtotal</span> : $ {{totalPrice}}
+		</div>
+	</div>
+</div>
+<a id="total" href="/checkout">Proceed to checkout</a>
+
+<br>
+    <br>
+ {% endblock %}

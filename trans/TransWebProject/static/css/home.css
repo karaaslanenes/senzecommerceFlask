@@ -1,0 +1,58 @@
+
+#itemImage {
+	height: 200px;
+	width: 150px;
+}
+
+.display {
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+table {
+	border-spacing: 20px;
+}
+
+
+
+
+
+.displayCategory ul li {
+	font-size: 20px;
+}
+
+.Item {
+	align-content: center;
+		text-align: center;
+		background-color: rgb(33,209,146);
+	color: white;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.nav-link
+{
+  font-family: 'Lato', sans-serif;
+  color:grey;
+  font-size: 30px;
+  margin: 0px;
+}
+.navbar-brand
+{
+  font-family: Fantasy;
+  color:Black;
+  font-size: 35px !important;
+  margin: 0px;
+	  font-weight: bold;
+
+}
+
+.Gecler{
+	color: white;
+padding-left:10px;
+  padding-right:10px;
+}
